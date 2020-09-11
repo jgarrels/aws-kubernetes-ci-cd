@@ -11,6 +11,18 @@ setup-jenkins:
 	
 	# check Jenkins status
 	sudo systemctl status jenkins
+	
+	# get the public DNS address of this EC2 instance for accessing Jenkins:
+	curl -s http://169.254.169.254/latest/meta-data/public-hostname >> public_dns.txt
+	echo ":8080" >> public_dns.txt
+	
+	# open Jenkins here:
+	cat public_dns.txt
+	
+	# the initial password required by Jenkins should be:
+	sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+	# If this throws an error, please use the file location indicated 
+	# in the Jenkins interface.
 
 
 	
