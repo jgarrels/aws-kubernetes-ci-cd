@@ -1,3 +1,7 @@
+setup-ebs-size:
+	# make the attached EBS volume big enough for this project:
+	sh resize.sh 50
+
 setup-jenkins:
 	# Install Jenkins, a CI/CD tool
 	wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
