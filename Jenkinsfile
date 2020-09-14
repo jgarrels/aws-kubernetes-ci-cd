@@ -21,7 +21,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]) {
                     sh 'echo "Now deploying Docker image to local Kubernetes cluster"'
-                    sh "docker run -p 8000:80 capstone"
+                    sh "docker run -p 8000:80 ${env.dockerUsername}/capstone"
                     sh "kubectl run capstone --image=${env.dockerUsername}/capstone"
                     sh "kubectl get pods"
                     sh "kubectl port-forward capstone 8000:80"
