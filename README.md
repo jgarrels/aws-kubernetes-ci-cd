@@ -15,6 +15,10 @@ For this project, you will need
 - Run the following to set up the EBS volume and Jenkins: `make setup-ebs-size` and `make setup-jenkins`. It is important that you run `make setup-ebs-size` first.
 - Use the output from `make setup-jenkins`: go to the public DNS address for the Jenkins interface displayed (something starting with ec2- and ending with :8080) 
   and enter the alphanumeric initial password displayed.
+- Set up Jenkins: Choose "Install suggested plugins", then create an admin user.
+  Go to "Manage Jenkins" -> "Manage plugins" -> "Available" and install "Blue Ocean - Blue Ocean Aggregator".
+- Go back to the Jenkins landing page and click on "Blue Ocean" in the sidebar on the left.
+- Create a pipeline: create a GitHub token, select the repository and create the pipeline.
 
 ## Project description
 
