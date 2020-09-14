@@ -7,7 +7,7 @@ pipeline {
                 sh "tidy -q -e *.html"
             }
         }
-        stage('Build Docker image and deploy to local k8s') {
+        stage('Build Docker image and run it locally') {
             steps {
                 sh 'echo "Now building Docker image"'
                 withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]) {
@@ -15,9 +15,6 @@ pipeline {
                     sh "docker build --tag ${env.dockerUsername}/capstone:latest ."
                     sh "docker push ${env.dockerUsername}/capstone"
                     sh "docker run -d -p 8000:80 --name capstone ${env.dockerUsername}/capstone"
-                    sh "kubectl run capstone --image=${env.dockerUsername}/capstone"
-                    sh "kubectl get pods"
-                    sh "kubectl port-forward capstone 8000:80"
                 }
             }
         }
