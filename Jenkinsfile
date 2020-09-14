@@ -14,6 +14,7 @@ pipeline {
                     sh 'sudo docker login -u ${env.dockerUsername} -p ${env.dockerPassword} && \
                         sudo docker build --tag ${env.dockerUsername}/capstone:1.0 . && \
                         sudo docker push --tag ${env.dockerUsername}/capstone:1.0'
+                }
             }
         }
         stage('Deploy to AWS EKS') {
