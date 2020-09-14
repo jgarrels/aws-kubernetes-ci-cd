@@ -1,0 +1,37 @@
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "metadata":{
+      "name":"capstone",
+      "labels":{
+         "app":"capstone"
+      }
+   },
+   "spec":{
+      "replicas":1,
+      "selector":{
+         "app":"capstone"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "app":"capstone"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"green",
+                  "image":"jgarrels/capstone",
+                  "ports":[
+                     {
+                        "name":"http-server",
+                        "containerPort":80
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}
