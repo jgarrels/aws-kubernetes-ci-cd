@@ -28,5 +28,7 @@ setup-jenkins:
 	# If this throws an error, please use the file location indicated 
 	# in the Jenkins interface.
 
-
+setup-other:
+	sudo apt-get update
+	sudo apt-get -y install tidy
 	
