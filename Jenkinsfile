@@ -13,7 +13,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]) {
                     sh "docker login -u ${env.dockerUsername} -p ${env.dockerPassword}"
                     sh "docker build --tag ${env.dockerUsername}/capstone:1.0 ."
-                    sh "docker push --tag ${env.dockerUsername}/capstone:1.0"
+                    sh "docker push ${env.dockerUsername}/capstone:1.0"
                 }
             }
         }
