@@ -29,6 +29,8 @@ pipeline {
                     sh "kubectl apply -f ./service.json"
                     sh "kubectl get nodes"
                     sh "kubectl get pods"
+                    sh "kubectl get -o wide svc client"
+                    sh "kubectl describe svc client"
                 }
             }
         }

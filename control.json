@@ -22,7 +22,7 @@
             "containers":[
                {
                   "name":"green",
-                  "image":"jgarrels/capstone",
+                  "image":"jgarrels/capstone:latest",
                   "ports":[
                      {
                         "name":"http-server",
