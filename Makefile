@@ -65,4 +65,7 @@ setup-other:
 	# grant Jenkins and Docker access to each other
 	sudo usermod -a -G docker $(USER)
 
-setup: setup-ebs-size setup-other setup-jenkins
+create-eks-cluster:
+	sh eks-create-cluster.sh
+
+setup: setup-ebs-size setup-other create-eks-cluster setup-jenkins
