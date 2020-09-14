@@ -1,4 +1,5 @@
 # Pull the NGINX Docker image
+# hadolint ignore=DL3006
 FROM nginx
 
 # Remove the initial NGINX landing page
