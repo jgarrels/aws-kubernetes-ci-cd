@@ -25,7 +25,6 @@ pipeline {
                 echo 'Deploying to AWS EKS'
                 withAWS(credentials: 'aws', region: 'us-west-2') {
                     sh "aws eks --region us-east-2 update-kubeconfig --name capstone"
-                    sh "kubectl apply -f ./eks-config.yml"
                     sh "kubectl get nodes"
                     sh "kubectl get pods"
                 }
