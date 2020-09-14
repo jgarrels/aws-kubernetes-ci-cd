@@ -42,6 +42,11 @@ setup-other:
 	sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.18.0/hadolint-Linux-x86_64
 	sudo chmod +x /bin/hadolint
 	
+	# install eksctl
+	curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz" | tar xz -C /tmp
+	sudo mv /tmp/eksctl /usr/local/bin
+	eksctl version
+	
 	# install kubectl
 	sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2
 	curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
