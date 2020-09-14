@@ -10,7 +10,7 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 sh 'echo "Now building Docker image"'
-                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername)]) {
+                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'dockerPassword', usernameVariable: 'dockerUsername')]) {
                     sh 'sudo docker login -u ${env.dockerUsername} -p ${env.dockerPassword}'
                     sh 'sudo docker build --tag ${env.dockerUsername}/capstone:1.0 .'
                     sh 'sudo docker push --tag ${env.dockerUsername}/capstone:1.0'
