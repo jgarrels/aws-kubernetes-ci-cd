@@ -14,7 +14,7 @@ pipeline {
                     sh "docker login -u ${env.dockerUsername} -p ${env.dockerPassword}"
                     sh "docker build --tag ${env.dockerUsername}/capstone:latest ."
                     sh "docker push ${env.dockerUsername}/capstone"
-                    sh "docker run -p 8000:80 --name capstone ${env.dockerUsername}/capstone"
+                    sh "docker run -d -p 8000:80 --name capstone ${env.dockerUsername}/capstone"
                     sh "kubectl run capstone --image=${env.dockerUsername}/capstone"
                     sh "kubectl get pods"
                     sh "kubectl port-forward capstone 8000:80"
