@@ -33,5 +33,6 @@ setup-other:
 	sudo apt-get -y install tidy
 	sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.18.0/hadolint-Linux-x86_64
 	sudo chmod +x /bin/hadolint
+	sudo usermod -a -G docker $(USER)
 
 setup: setup-ebs-size setup-other setup-jenkins
