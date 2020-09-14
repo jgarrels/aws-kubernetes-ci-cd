@@ -27,6 +27,10 @@ setup-jenkins:
 	sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 	# If this throws an error, please use the file location indicated 
 	# in the Jenkins interface.
+	
+	# grant Jenkins and Docker permissions to each other
+	sudo usermod -aG docker jenkins
+	sudo systemctl restart jenkins
 
 setup-other:
 	sudo apt-get update
