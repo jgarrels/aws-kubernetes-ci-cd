@@ -17,10 +17,14 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to AWS EKS') {
+        stage('Run Docker image on Kubernetes on Code9 EC2 instance') {
             steps {
-                sh 'echo "Now deploying Docker image to AWS EKS"'
-                sh 'echo "Implement this"'
+                sh 'echo "Now deploying Docker image to local Kubernetes cluster"'
+                sh "docker run -p 8000:80 capstone"
+                sh "kubectl run capstone --image=$(env.dockerUsername)/capstone"
+                sh "kubectl get pods"
+                sh "kubectl port-forward capstone 8000:80"
+                
             }
         }
     }
