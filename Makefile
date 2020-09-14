@@ -31,4 +31,7 @@ setup-jenkins:
 setup-other:
 	sudo apt-get update
 	sudo apt-get -y install tidy
+	sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.18.0/hadolint-Linux-x86_64
+	sudo chmod +x /bin/hadolint
+
 	
