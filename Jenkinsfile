@@ -8,14 +8,14 @@ pipeline {
             }
         }
         stage('Build Docker image') {
-            echo 'Now building Docker image'
             steps {
+                sh 'echo "Now building Docker image"'
                 sh 'echo "Implement this"'
             }
         }
         stage('Deploy to AWS EKS') {
-            echo 'Now deploying Docker image to AWS EKS'
             steps {
+                sh 'echo "Now deploying Docker image to AWS EKS"'
                 sh 'echo "Implement this"'
             }
         }
