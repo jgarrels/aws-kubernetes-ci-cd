@@ -17,7 +17,8 @@ For this project, you will need
 - Clone this repository into your Cloud9 instance with `git clone https://github.com/jgarrels/aws-kubernetes-ci-cd` and go into the folder with `cd aws-kubernetes-ci-cd`.
 - Run `make setup` to configure the EBS storage size, install and start Jenkins and other dependencies. If you get an error, run `make setup` again and 
   it should run without problems. Should you need to run the make steps included in setup separately, it is important that you run `make setup-ebs-size` first.
-- Use the output from `make setup-jenkins`: go to the public DNS address for the Jenkins interface displayed (something starting with ec2- and ending with :8080) 
+- Use the output from `make setup-jenkins` (the last step in `make setup` - its output should be displayed as the last thing in the terminal):
+  go to the public DNS address for the Jenkins interface displayed (something starting with ec2- and ending with :8080)
   and enter the alphanumeric initial password displayed.
 - Set up Jenkins: Choose "Install suggested plugins", then create an admin user.
   Go to "Manage Jenkins" -> "Manage plugins" -> "Available" and install "Blue Ocean - Blue Ocean Aggregator".
