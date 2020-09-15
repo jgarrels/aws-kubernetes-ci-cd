@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: capstone-containers
-          image: jgarrels/capstone
+          image: jgarrels/capstone:latest
           ports:
           - name: http
             containerPort: 80
