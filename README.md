@@ -2,6 +2,8 @@
 
 DNS for reviewer: http://ac939a201f75411ea87ca0ae77010f51-962482190.us-east-2.elb.amazonaws.com/
 
+For screenshots detailing the deployment, deployment with error, and next version deployment, please scroll down to the last section.
+
 ## Prerequisites
 
 For this project, you will need
@@ -62,9 +64,19 @@ The Jenkins output in the terminal on Cloud9 will look like this:
   Go to "Manage Jenkins" -> "Manage plugins" -> "Available" and install "Blue Ocean - Blue Ocean Aggregator", "Pipeline: AWS steps", "Docker" and "docker-build-step".
 - Go to "Manage Jenkins" -> "Manage Credentials" -> "(global)" and add your AWS credentials as AWS credentials with ID "aws" 
   and your DockerHub credentials as "Username with Password" and ID "docker".
+
+AWS credentials setup:
+
+![AWS credentials in Jenkins](./screenshots/4b-Jenkins-aws-credentials.png)
+
+Docker Hub credentials setup:
+
+![Docker Hub credentials in Jenkins](./screenshots/4c-Jenkins-docker-credentials.png)
+
 - Go back to the Jenkins landing page and click on "Blue Ocean" in the sidebar on the left.
 - Create a pipeline: create a GitHub token, select the repository and create the pipeline (you might need to fork or clone this repo into your GitHub).
 - Go to the classic Jenkins view, to the pipeline, and under "Configure" set "Scan Repository Triggers" to something reasonable (e.g. 2 minutes for demo purposes).
+  ![Periodic scans in Jenkins](./screenshots/5a-Jenkins-scan-repo-triggers-periodically.png)
 - Wait for the pipeline to run and view the resulting logs, especially for the last step. The load balancer's DNS name will be there.
   Copy the LB DNS into a new browser tab. You should now see the website saying something like "Hi there!".
 
@@ -102,3 +114,51 @@ The application so far is a simple web page run in NGINX.
 - automate the Jenkins plugin installation, if possible - currently need to be installed manually in the Web UI
 - automate the Jenkins credentials, if possible - currently need to be entered manually in the Web UI
 - make a more interesting application to be containerized and run
+
+## Screenshots detailing the deployment, deployment with error, and next version deployment
+
+### Version 1.0
+
+Overview
+
+![Overview 1.0](./screenshots/6a-version-1-0-overview.png)
+
+Pipeline
+
+![Pipeline 1.0](./screenshots/6b-version-1-0-pipeline.png)
+
+Pipeline: output with the load balancer DNS name
+
+![DNS 1.0](./screenshots/6c-version-1-0-output-with-load-balancer.png)
+
+Web page
+
+![Web page 1.0](./screenshots/6d-version-1-0-webpage.png)
+
+### Version 1.1: with an HTML error
+
+Overview
+
+![Overview 1.1](./screenshots/7a-version-1-1-error-overview.png)
+
+Pipeline fails, linting error message
+
+![Pipeline 1.1](./screenshots/7b-version-1-1-error-pipeline-with-linting-error-message.png)
+
+### Version 1.2: updated web page
+
+Overview
+
+![Overview 1.2](./screenshots/8a-version-1-2-overview.png)
+
+Pipeline successful
+
+![Pipeline 1.2](./screenshots/8b-version-1-2-pipeline.png)
+
+Pipeline: output with load balancer DNS name
+
+![DNS 1.2](./screenshots/8c-version-1-2-output-with-load-balancer-dns.png)
+
+Web page: updated with cat image
+
+![Web page 1.2](./screenshots/8d-version-1-2-webpage.png)
