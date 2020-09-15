@@ -69,5 +69,20 @@ This project deploys an application into a Kubernetes cluster on AWS, using the 
 
 ### Choice of technologies
 
-### Further scope for automation
+For this project, Jenkins, Docker and EKS were required as part of the project (for Udacity's Cloud DevOps Nanodegree program).
+Docker and Kubernetes are the current industry standard for containerization and container management.
+Amazon Web Services provides a Kubernetes services called EKS (Elastic Kubernetes Service) which makes Kubernetes management in the cloud easy.
+Jenkins is a CI/CD tool broadly used in the industry.
 
+For the project development I chose Cloud9 by AWS - an online development environment that runs on an EC2 instance.
+This cloud-native environment stays true to the DevOps mindset and makes things a bit easier - for example, it has the AWS CLI and Docker already installed.
+Since this project is not thought to be immediately deployed in a production environment, Cloud9 works just fine for development and deployment of Jenkins.
+
+The application so far is a simple web page run in NGINX.
+
+### Further scope for automation and improvement
+
+- make the project more platform independent - it currently requires a Debian/Ubuntu machine to run on.
+- automate the Jenkins plugin installation, if possible - currently need to be installed manually in the Web UI
+- automate the Jenkins credentials, if possible - currently need to be entered manually in the Web UI
+- make a more interesting application to be containerized and run
