@@ -27,6 +27,7 @@ pipeline {
                     sh "aws eks --region us-east-2 update-kubeconfig --name capstone"
                     sh "kubectl apply -f ./control.json"
                     sh "kubectl apply -f ./service.json"
+                    sh "kubectl rolling-update capstone --image=docker.io/jgarrels/capstone:latest
                     sh "kubectl get deployments"
                     sh "kubectl get nodes"
                     sh "kubectl get pods"
