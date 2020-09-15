@@ -59,7 +59,8 @@ If you don't want to have a lot of charges for EC2 instances and NAT gateways et
 - Go to the EKS page and delete the clusters.
 - Go to the CloudFormation page and delete the stacks pertaining to the EKS cluster (starting with `eksctl-`). Some resources might need to be deleted manually 
   should you run into a delete error. After deleting those manually, you can retry to delete the stack (it will prompt you to skip those difficult ones, which you 
-  should do - the stack is then simply deleted).
+  should do - the stack is then simply deleted). Tricky: sometimes the load balancer will not show up in that list and you'll need to delete it manually 
+  (from the EC2 dashboard -> Load Balancers) before you can delete the other resources.
 - Finally, you can delete the Cloud9 instance from the Cloud9 dashboard.
 
 
