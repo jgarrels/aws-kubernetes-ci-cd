@@ -16,6 +16,7 @@ For this project, you will need
   (do not force a credentials update which would give you another set of temporary credentials) and then "disable permanently" (this will prevent AWS from 
   overwriting your credentials with yet another set of temporar ones). Otherwise, you could run into problems with the EKS cluster if you have temporary credentials.
 - Configure the Cloud9 EC2 instance's security group to allow Custom TCP access from your IP address on port 8080 (this will be used to access Jenkins in a browser).
+![Click on the security group](./screenshots/1a-Cloud9-overview-click-sg.png)
 - Clone this repository into your Cloud9 instance with `git clone https://github.com/jgarrels/aws-kubernetes-ci-cd` and go into the folder with `cd aws-kubernetes-ci-cd`.
 - Run `make setup` to configure the EBS storage size, create the EKS cluster, install and start Jenkins and other dependencies. If you get an error, run `make setup` again and 
   it should run without problems. Should you need to run the make steps included in setup separately, it is important that you run `make setup-ebs-size` first.
