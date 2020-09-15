@@ -1,5 +1,7 @@
 # Kubernetes CI/CD on AWS
 
+DNS for reviewer: http://ac939a201f75411ea87ca0ae77010f51-962482190.us-east-2.elb.amazonaws.com/
+
 ## Prerequisites
 
 For this project, you will need
