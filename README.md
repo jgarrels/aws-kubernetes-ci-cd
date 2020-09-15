@@ -38,13 +38,26 @@ Add an inbound rule: Custom TCP, port 8080, My IP, description: Jenkins Web UI
 - Run `make setup` to configure the EBS storage size, create the EKS cluster, install and start Jenkins and other dependencies. If you get an error, run `make setup` again and 
   it should run without problems. Should you need to run the make steps included in setup separately, it is important that you run `make setup-ebs-size` first.
 
+The `make setup` step usually takes around 20 minutes, the biggest part of which is the EKS cluster creation.
+
+The stacks created in CloudFormation (for Cloud9 and EKS) will look like this: 
+
+![CloudFormation stacks for Cloud9 and EKS](./screenshots/3a-CloudFormation-stacks-for-EKS-and-Cloud9.png)
+
+
+
 ### Set up Jenkins in the Web UI and run the pipeline
 
 - Use the output from `make setup-jenkins` (the last step in `make setup` - its output should be displayed as the last thing in the terminal):
   go to the public DNS address for the Jenkins interface displayed (something starting with ec2- and ending with :8080)
   and enter the alphanumeric initial password displayed.
+
+The Jenkins output in the terminal on Cloud9 will look like this: 
+
+![Jenkins output in terminal](./screenshots/4a-Jenkins-in-terminal.png)
+
 - Set up Jenkins: Choose "Install suggested plugins", then create an admin user.
-  Go to "Manage Jenkins" -> "Manage plugins" -> "Available" and install "Blue Ocean - Blue Ocean Aggregator", "Pipeline: AWS steps", "Docker" and "Docker build steps".
+  Go to "Manage Jenkins" -> "Manage plugins" -> "Available" and install "Blue Ocean - Blue Ocean Aggregator", "Pipeline: AWS steps", "Docker" and "docker-build-step".
 - Go to "Manage Jenkins" -> "Manage Credentials" -> "(global)" and add your AWS credentials as AWS credentials with ID "aws" 
   and your DockerHub credentials as "Username with Password" and ID "docker".
 - Go back to the Jenkins landing page and click on "Blue Ocean" in the sidebar on the left.
