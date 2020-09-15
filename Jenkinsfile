@@ -15,7 +15,7 @@ pipeline {
                     sh "echo 'remove docker container if exists'"
                     sh "docker rm -f capstone || true"
                     sh "docker build --tag ${env.dockerUsername}/capstone:1.2 ."
-                    sh "docker push ${env.dockerUsername}/capstone"
+                    sh "docker push ${env.dockerUsername}/capstone:1.2"
                     sh "docker run -d -p 8000:80 --name capstone ${env.dockerUsername}/capstone"
                 }
             }
