@@ -12,12 +12,12 @@ For this project, you will need
 
 - Create a Cloud9 coding environment. You can choose any instance size (I used the t2.micro which is free-tier eligible),
   but please make sure it runs Ubuntu (not Amazon Linux).
-- Enter your own AWS credentials (e.g. the ones associated with the IAM user you used for creating the Cloud9 environment). When prompted, click cancel 
+- Enter your own AWS credentials with `aws configure` (e.g. the ones associated with the IAM user you used for creating the Cloud9 environment). When prompted, click cancel 
   (do not force a credentials update which would give you another set of temporary credentials) and then "disable permanently" (this will prevent AWS from 
   overwriting your credentials with yet another set of temporar ones). Otherwise, you could run into problems with the EKS cluster if you have temporary credentials.
 - Configure the Cloud9 EC2 instance's security group to allow Custom TCP access from your IP address on port 8080 (this will be used to access Jenkins in a browser).
 - Clone this repository into your Cloud9 instance with `git clone https://github.com/jgarrels/aws-kubernetes-ci-cd` and go into the folder with `cd aws-kubernetes-ci-cd`.
-- Run `make setup` to configure the EBS storage size, create the EKS cluster install and start Jenkins and other dependencies. If you get an error, run `make setup` again and 
+- Run `make setup` to configure the EBS storage size, create the EKS cluster, install and start Jenkins and other dependencies. If you get an error, run `make setup` again and 
   it should run without problems. Should you need to run the make steps included in setup separately, it is important that you run `make setup-ebs-size` first.
 
 ### Set up Jenkins in the Web UI and run the pipeline
