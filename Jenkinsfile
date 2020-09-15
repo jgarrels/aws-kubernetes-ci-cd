@@ -27,6 +27,7 @@ pipeline {
                     sh "aws eks --region us-east-2 update-kubeconfig --name capstone"
                     sh "kubectl apply -f ./control.json"
                     sh "kubectl apply -f ./service.json"
+                    sh "kubectl get deployments"
                     sh "kubectl get nodes"
                     sh "kubectl get pods"
                     sh "kubectl get -o wide svc capstonelb"
