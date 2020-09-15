@@ -62,7 +62,7 @@ setup-other:
 	sudo mkdir -p /usr/local/bin/
 	sudo install minikube /usr/local/bin/
 	
-	# grant Jenkins and Docker access to each other
+	# grant the user access to Docker
 	sudo usermod -a -G docker $(USER)
 
 create-eks-cluster:
