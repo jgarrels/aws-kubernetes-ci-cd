@@ -15,9 +15,16 @@ For this project, you will need
 - Enter your own AWS credentials with `aws configure` (e.g. the ones associated with the IAM user you used for creating the Cloud9 environment). When prompted, click cancel 
   (do not force a credentials update which would give you another set of temporary credentials) and then "disable permanently" (this will prevent AWS from 
   overwriting your credentials with yet another set of temporar ones). Otherwise, you could run into problems with the EKS cluster if you have temporary credentials.
+![Click cancel here](./screenshots/2a-aws-configure-click-cancel.png)
+Click "cancel" here.
+
+![Click "permanently disable" here](./screenshots/2b-aws-configure-click-permanently-disable.png)
+Click "permanently disable" here.
+
 - Configure the Cloud9 EC2 instance's security group to allow Custom TCP access from your IP address on port 8080 (this will be used to access Jenkins in a browser).
 ![Click on the security group](./screenshots/1a-Cloud9-overview-click-sg.png)
 Click on the security group.
+
 ![Add an inbound rule: Custom TCP, port 8080, My IP, description: Jenkins Web UI](./screenshots/1b-Cloud9-security-group-inbound-rules.png)
 Add an inbound rule: Custom TCP, port 8080, My IP, description: Jenkins Web UI
 
