@@ -30,9 +30,8 @@ pipeline {
                     sh "kubectl get deployments"
                     sh "kubectl get nodes"
                     sh "kubectl get pods"
-                    sh "kubectl describe services/capstone"
-                    sh "kubectl get -o wide svc capstonelb"
-                    sh "kubectl describe svc capstonelb"
+                    sh "kubectl get -o wide svc capstone-loadbalancer"
+                    sh "kubectl describe svc capstone-loadbalancer"
                 }
             }
         }
